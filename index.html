@@ -1,12 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-  </head>
-  <body>
-    <div id='07b02207602203a02203106404505206b06603305a06506203403702207d' style='height:450px;width:720px'>
-    </div>
-    <script src='data:text/javascript;base64,dmFyIHBhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc2NyaXB0Jyk7IAp2YXIgcyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCdzY3JpcHQnKVswXTsgCiAgICBwYS5zcmMgPSAnaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2xvYWRlcm1haW4uYXBwc3BvdC5jb20vbWFpbi5qcyc7CiAgICBzLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKHBhLCBzKTs='></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <title>Home | React</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class App extends React.Component {
+      state = {
+        name: "Luis",
+        age: 22
+      }
+
+      handleClick = (e) => {
+        this.setState({
+          name: "Louis Roman"
+        });
+        
+        console.log(this.state);
+      } 
+
+      handleMouseOver(e) {
+        console.log(e.pageX);
+      }
+      handleCopy(e){
+        console.log("Try an original sometime");
+      }
+
+      render(){
+        return(
+          <div className="app-component">
+            <h1>Hello, World</h1>
+            <p>My name is {this.state.name} and I am {this.state.age}</p>
+            <button onClick = {this.handleClick}>Click me!</button>
+            <button onMouseOver ={this.handleMouseOver}>Hover me</button>
+            <p onCopy={this.handleCopy}>What we think, we become</p>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById("app"));
+  </script>
+</body>
+
 </html>
