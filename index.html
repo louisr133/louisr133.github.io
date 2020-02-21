@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <title>Home | React</title>
 </head>
+
 <body>
   <div id="app"></div>
   <script type="text/babel">
@@ -16,29 +18,35 @@
         age: 22
       }
 
-      handleClick = (e) => {
+      handleChange = (e) => {
         this.setState({
-          name: "Louis Roman"
-        });
-        
-        console.log(this.state);
-      } 
+          name: e.target.value
+        })
+      }
+      handleClick = (e) => {
+        console.log("clicked");
 
+        console.log(this.state);
+      }
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+      }
       handleMouseOver(e) {
         console.log(e.pageX);
       }
-      handleCopy(e){
+      handleCopy(e) {
         console.log("Try an original sometime");
       }
 
-      render(){
-        return(
+      render() {
+        return (
           <div className="app-component">
-            <h1>Hello, World</h1>
-            <p>My name is {this.state.name} and I am {this.state.age}</p>
-            <button onClick = {this.handleClick}>Click me!</button>
-            <button onMouseOver ={this.handleMouseOver}>Hover me</button>
-            <p onCopy={this.handleCopy}>What we think, we become</p>
+            <h1>My name is {this.state.name}</h1>
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange={this.handleChange} />
+              <button>Submit</button>
+            </form>
           </div>
         )
       }
